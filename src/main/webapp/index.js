@@ -32,12 +32,12 @@ function modallenNo(){
 }
 
 function register(){
-	window.location="http://localhost:8080/IPASS/registreren.html";
+	window.location="registreren.html";
 }
 
 function loggedin() {
 	$.ajax({
-		url: "/IPASS/restservices/data/loggedin",
+		url: "/restservices/data/loggedin",
 		method: "GET",
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
@@ -45,7 +45,7 @@ function loggedin() {
 		},
 		success: function (data) {
 			var rol = window.sessionStorage.getItem("role");
-			window.location="http://localhost:8080/IPASS/"+ rol +".html";
+			window.location=rol +".html";
 		},
 	});
 }

@@ -1,6 +1,6 @@
 function loggedin() {
 	$.ajax({
-		url: "/IPASS/restservices/data/loggedin",
+		url: "/restservices/data/loggedin",
 		method: "GET",
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
@@ -10,14 +10,14 @@ function loggedin() {
 			getVacatures();
 		},
 		error: function (data) {
-			window.location="http://localhost:8080/IPASS/";
+			window.location="https://ipasswebservice.herokuapp.com/";
 		},
 	});
 }
 
 function getVacatures(){
 	$.ajax({
-		url: "/IPASS/restservices/data/vacatures/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role"),
+		url: "/restservices/data/vacatures/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role"),
 		method: "GET",
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
@@ -41,25 +41,25 @@ function getVacatures(){
 
 function getVacature(va_id){
 	window.sessionStorage.setItem("vacatureID", va_id)
-	window.location="http://localhost:8080/IPASS/vacature.html";
+	window.location="vacature.html";
 }
 
 function away(){
 	var data = window.sessionStorage.getItem("role")
-	window.location="http://localhost:8080/IPASS/"+ data +".html";
+	window.location=data +".html";
 }
 
 function logout(){
 	window.sessionStorage.clear();
-	window.location="http://localhost:8080/IPASS";
+	window.location="https://ipasswebservice.herokuapp.com/";
 }
 
 function red(){
-	window.location="http://localhost:8080/IPASS/bewerken.html";
+	window.location="bewerken.html";
 }
 
 function werkvlakken(){
-	window.location="http://localhost:8080/IPASS/werkvlakken.html";
+	window.location="werkvlakken.html";
 }
 
 //Get the modal

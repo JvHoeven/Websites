@@ -8,14 +8,14 @@ function register(){
 		modal.style.display = "block";
 	}else{
 		$.ajax({
-			url: "/IPASS/restservices/data/geb",
+			url: "/restservices/data/geb",
 			type: "post",
 			data : $("#register").serialize(),
 
 			success: function (data) {
 				if(data == null){
 					$.ajax({
-						url: "/IPASS/restservices/data",
+						url: "/restservices/data",
 						type: "post",
 						data : $("#register").serialize(),
 
@@ -48,7 +48,7 @@ function modallenNo(){
 }
 
 function away(){
-	window.location="http://localhost:8080/IPASS/";
+	window.location="https://ipasswebservice.herokuapp.com/";
 }
 
 //Get the modal

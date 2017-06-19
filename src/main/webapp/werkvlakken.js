@@ -4,7 +4,7 @@ var data = null;
 
 function loggedin() {
 	$.ajax({
-		url: "/IPASS/restservices/data/loggedin",
+		url: "/restservices/data/loggedin",
 		method: "GET",
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
@@ -14,14 +14,20 @@ function loggedin() {
 			getInterimmer();
 		},
 		error: function (data) {
-			window.location="http://localhost:8080/IPASS/";
+			window.location="https://ipasswebservice.herokuapp.com/";
 		},
 	});
 }
 
+function logout(){
+	window.sessionStorage.clear();
+	window.location="https://ipasswebservice.herokuapp.com/";
+}
+
+
 function getInterimmer(){
 	$.ajax({
-		url: "/IPASS/restservices/data/interimmer/" + window.sessionStorage.getItem("id"),
+		url: "/restservices/data/interimmer/" + window.sessionStorage.getItem("id"),
 		method: "POST",
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
@@ -126,7 +132,7 @@ function opslaan(){
 	}
 	arrayAsAString = array.join(",");
 	$.ajax({
-		url: "/IPASS/restservices/data/werkvlakken/"+ data + "/" + window.sessionStorage.getItem("id") +"/"+ arrayAsAString,
+		url: "/restservices/data/werkvlakken/"+ data + "/" + window.sessionStorage.getItem("id") +"/"+ arrayAsAString,
 		method: "POST",
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
@@ -173,11 +179,11 @@ function modallenNo(){
 }
 
 function away(){
-	window.location="http://localhost:8080/IPASS/" + window.sessionStorage.getItem("role") + ".html";
+	window.location=window.sessionStorage.getItem("role") + ".html";
 }
 
 function red(){
-	window.location="http://localhost:8080/IPASS/bewerken.html";
+	window.location="bewerken.html";
 }
 
 //Get the modal
