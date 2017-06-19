@@ -1,0 +1,215 @@
+#vacature{
+	margin : 0 auto;
+	background-color: white;
+	border-radius:32px;
+	display: block;
+    box-sizing: border-box;
+    position: center;
+    width: 70%;
+    margin-top: 2%;
+}
+#vacaturen{
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#banner {
+	grid-column: 1;
+	grid-row: 1;
+	background-color: white;
+}
+
+#loging {
+	grid-column: 1;
+	grid-row: 2/3;
+	background-image: url("giraffe die rennen.png");
+	background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+#contact {
+	grid-column: 1;
+	grid-row: 3;
+	line-height: fill;
+	background-color: #202020;
+	color: white;
+	font-family: Ubuntu, sans-serif;
+}
+
+html{
+    min-height:100%;
+    margin:0;
+   	padding:0;
+   	height:100%;
+}
+body{
+    min-height:100%;
+    overflow-x: hidden;
+    margin:0;
+   	padding:0; 
+    width: 100%;
+}
+
+#titel{
+	font-size: 1.7rem;
+	margin-bottom: 5px;
+	text-align:left;
+}​
+
+
+table{
+	height: 100%;
+}
+
+#reactie:hover{
+	background-color: #bfb9b9;
+}
+
+textarea {
+    resize: none;
+    min-height: 50px;
+    max-height: 100px;
+}
+
+#navigation{
+	margin-left: 15%;
+	margin-top: 5%;
+	width: 100%;
+	height: auto;
+	display:inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+a{
+   color:white;
+   text-decoration: none; 
+   background-color: none;
+}
+
+ul{
+	padding: 0;
+	list-style-type: none;
+	display: inline;
+}
+
+.block{
+	float: left;
+    display: list-item;
+    list-style: none;
+    text-align:left;
+    display: inline;
+    margin-left: 5%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius:32px;
+}
+
+#modal{
+	text-align: center;
+}
+
+td{
+	text-align: left;
+	width: 17.5%;
+	font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+    height: auto;
+}
+
+thead{
+	font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+    text-align: center;
+    height: 1%;
+}
+
+textarea, input{
+	margin : 0 auto;
+	margin-top: 1%;
+    display: block;
+    box-sizing: border-box;
+    position: center;
+    width: 100%;
+    border-radius:10px;
+    text-align: center;
+    font-size: 13px;
+    font-family: Ubuntu, sans-serif;
+    border:0 !important;
+    font-weight: bold;
+    background-color: #e8e3e3;
+}
+
+input{
+	background-color: #be1e2d;
+	color: white;
+	width: 20%;
+	height: 90%
+}
+
+input:hover{
+	background-color: #a30b13;
+}
+
+.com{
+	text-align: center;
+	height: 100%;
+	width: 20%;
+	padding: 8px;
+}
+
+.wid{
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+#home, #gegevensBewerken, #werkvlakken, #logout{
+	color: white;
+	font-weight: bold;
+	height: 40%;
+	width: 100%;
+	background-color: #be1e2d;
+}
+
+#frame {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.5fr 2.9fr 1.70fr;
+}
+
+.pad{
+	padding: 8px;
+}
+
+#aligning{
+		margin-left: auto;
+    	margin-right: auto;
+}
+#mobiel, #vacatureMob{
+	display: none;
+}
