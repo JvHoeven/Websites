@@ -2,7 +2,7 @@ var worked = false;
 
 function loging(){
 	$.ajax({
-		url: "/IPASS/restservices/authentication",
+		url: "/restservices/authentication",
 		type: "post",
 		data : $("#tryLogin").serialize(),
 
@@ -19,7 +19,7 @@ function loging(){
 function getIdRole(){
 	
 	var data = $("#tryLogin").serialize();
-	$.post("/IPASS/restservices/data/idRole", data, function(response) {
+	$.post("/restservices/data/idRole", data, function(response) {
 		window.sessionStorage.setItem("id", response.id);
 		window.sessionStorage.setItem("role", response.role);
 		var rol = window.sessionStorage.getItem("role");
