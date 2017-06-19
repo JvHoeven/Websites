@@ -23,7 +23,7 @@ function getIdRole(){
 		window.sessionStorage.setItem("id", response.id);
 		window.sessionStorage.setItem("role", response.role);
 		var rol = window.sessionStorage.getItem("role");
-		window.location="http://localhost:8080/IPASS/"+ rol +".html";
+		window.location= rol +".html";
 	});
 }
 
