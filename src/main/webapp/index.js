@@ -32,7 +32,7 @@ function modallenNo(){
 }
 
 function register(){
-	window.location=window.location.href + "registreren.html";
+	window.location="registreren.html";
 }
 
 function loggedin() {
