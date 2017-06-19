@@ -62,6 +62,10 @@ function opslaan(){
 		url: "/restservices/data/interimmer/update/" + window.sessionStorage.getItem("id"),
 		type: "post",
 		data : $("#update").serialize(),
+		beforeSend: function (xhr) {
+			var token = window.sessionStorage.getItem("sessionToken");
+			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
+		},
 
 		success: function (data) {
 			$("#modal").html('<div>de wijzigingen zijn opgeslagen</div><input type="button" id="Oke" onclick="away()" value="Oke">')
