@@ -10,7 +10,7 @@ function loggedin() {
 			getInterimmer();
 		},
 		error: function (data) {
-			window.location="http://localhost:8080/IPASS/";
+			window.location="https://ipasswebservice.herokuapp.com/";
 		},
 	});
 }
