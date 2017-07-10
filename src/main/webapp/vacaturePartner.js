@@ -31,6 +31,7 @@ function getVacature(){
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Bedrijf:</td><td>" + data.bedrijf + "</td><td>Functie:</td><td> "+ data.functie +"</td></tr>");		
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Postcode:</td><td> "+ data.postcode +"</td><td>Plaats: </td><td>"+ data.plaats +"</td></tr>");
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Aangeboden aan:</td><td> "+ data.intVoornaam + " "+ data.intAchternaam +"</td></tr>");
+					console.log(data.reactie)
 					if(data.reactie != "null" || data.reactie != ""){
 						$("#vacaturen").append("<tr id='info' class='tr'><td>Reactie:</td><td colspan='3'>" + data.reactie + "</td></tr>");
 					}
@@ -39,6 +40,7 @@ function getVacature(){
 						$("#vacaturen").append("<tr><td></td><td>" + arrays[i] + "</td><td>" + arrays[i + 1] + "</td><td>" + arrays[i + 2] + "</td></tr>");
 						i = i + 3
 					};
+					console.log(data.uitleg)
 					if(data.uitleg != "" || data.uitleg != "null"){
 						$("#vacaturen").append('<tr><td>Uitleg:</td><td colspan="3"><form><textarea placeholder="Uitleg" id="uitleg" name="uitleg" onkeyup="auto_grow(this)">'+ data.uitleg +'</textarea></form></td></tr>');
 					}else{
