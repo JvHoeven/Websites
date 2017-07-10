@@ -111,7 +111,7 @@ function plaats(){
 			$("#modal").html('<div>De uitleg is opgeslagen</div><input type="button" id="Oke" onclick="away()" value="oke">')
 		},
 		error: function(response) {
-			$("#modal").html('<div>er ging iet fout bij het opslaan</div><input type="button" id="Oke" onclick="nee" value="oke">')
+			$("#modal").html('<div>er ging iet fout bij het opslaan</div><input type="button" id="Oke" onclick="nee()" value="oke">')
 		},
 	});
 }
