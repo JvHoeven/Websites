@@ -109,6 +109,7 @@ public class Connection {
 			reactie = coms[2];
 		}
 		Partner par = provider.getPartner(v.getPartnerId());
+		Interimmer inte = provider.getInterimmer(v.getInterimmerId());
 			vac.add("bedrijf", v.getBedrijf());
 			vac.add("plaats", v.getPlaats());
 			vac.add("postcode", v.getPostcode());
@@ -119,6 +120,8 @@ public class Connection {
 			vac.add("uitleg", uitleg);
 			vac.add("parVoornaam", par.getVoornaam());
 			vac.add("parAchternaam", par.getAchternaam());
+			vac.add("intVoornaam", inte.getNaam());
+			vac.add("intAchternaam", inte.getAchternaam());
 		return vac.build().toString();
 	}
 	

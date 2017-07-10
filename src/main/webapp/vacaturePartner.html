@@ -2,46 +2,39 @@
 <html>
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet"  media="only screen and (min-width: 900px)" type="text/css" href="Partner.css">
-	<link rel="stylesheet"  media="only screen and (max-width: 900px)" type="text/css" href="PartnerMobiel.css">
+	<link rel="stylesheet"  media="only screen and (min-width: 900px)" type="text/css" href="vacaturePartner.css">
+	<link rel="stylesheet"  media="only screen and (max-width: 900px)" type="text/css" href="vacaturePartnerMobiel.css">
 	</head>
 	<body onload="loggedin()">
 		<div id="frame">
-			<div id="banner"><table class="wid" id="PCMASTER"><tr class="wid"><td class="pad"><img src="TPF_logo.png" alt="logo" style="width:auto;height:30%;"></td><td class="com"><input type="button" value="Home" id="home" onclick="away()"/></td><td class="com"><input type="button" onclick="red()" value="Gegevens Bewerken" id="gegevensBewerken"/></td><td class="com"><input type="button" onclick="werkvlakken()" value="Werkvlakken toevoegen" id="werkvlakken"/></td><td class="com"><input type="button" value="Logout" id="logout" onclick="logout()"/></td></tr></table>
+<div id="banner"><table class="wid" id="PCMASTER"><tr class="wid"><td class="pad"><img src="TPF_logo.png" alt="logo" style="width:auto;height:30%;"></td><td class="com"><input type="button" value="Home" id="home" onclick="away()"/></td><td class="com"><input type="button" onclick="red()" value="Gegevens Bewerken" id="gegevensBewerken"/></td><td class="com"><input type="button" onclick="werkvlakken()" value="Werkvlakken toevoegen" id="werkvlakken"/></td><td class="com"><input type="button" value="Logout" id="logout" onclick="logout()"/></td></tr></table>
 				<table class="wid" id="mobiel">
 					<tr class="wid">
 						<td class="pad" colspan="2"><img src="TPF_logo.png" alt="logo" style="width:auto;height:30%;"></td>
 					</tr>
 					<tr>
 						<td class="com"><input type="button" value="Home" id="home" onclick="away()"/></td>
-						<td class="com"><input type="button" value="Gegevens Bewerken" id="gegevensBewerken" onclick="red()"/></td>
+						<td class="com"><input type="button" onclick="red()" value="Gegevens Bewerken" id="gegevensBewerken"/></td>
 					</tr>
 					<tr>
 						<td class="com"><input type="button" value="Werkvlakken toevoegen" id="werkvlakken" onclick="werkvlakken()"/></td>
 						<td class="com"><input type="button" value="Logout" id="logout" onclick="logout()"/></td>
 					</tr>
 				</table>
-			</div>
+			</div>			
 			<div id="loging">
-				<table id="vacatures">
-				<thead id="vhead">
-				</thead>
-				<tbody>
-				<tr>
-				<td colspan="4" id="clear">
-				<div id="table-wrapper">
-				<div id="table-scroll">
-				<table class="tr">
-				<tbody id="vbody">
-				
-				</tbody>
+				<div id="vacature">
+				<table id="aligning">
+				<thead><tr><th colspan='4'>Vacature</th></tr></thead>
+				<tbody id="vacaturen"></tbody>
 				</table>
 				</div>
-				</div>
-				</td>
-				</tr>
-				</tbody>
+				<div id="vacatureMob">
+				<table id="aligningMob">
+				<thead><tr><th colspan='2'>Vacature</th></tr></thead>
+				<tbody id="vacaturenMob"></tbody>
 				</table>
+				</div>
 			</div>
 			<div id="contact">
 				<ul id="navigation">
@@ -102,11 +95,10 @@
 
 			  <!-- Modal content -->
 			  	<div id="modal" class="modal-content">
-			  	<div>De gebruikersnaam wachtwoord combinatie is incorrect</div><input type="button" id="Oke" onclick="modallenNo()" value="Oke">
 			  	</div>
 			
 		</div>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-	<script src="Partner.js" onload=></script>
+	<script src="vacaturePartner.js" onload=></script>
 </html>
