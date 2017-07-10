@@ -31,7 +31,7 @@ function getVacature(){
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Bedrijf:</td><td>" + data.bedrijf + "</td><td>Functie:</td><td> "+ data.functie +"</td></tr>");		
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Postcode:</td><td> "+ data.postcode +"</td><td>Plaats: </td><td>"+ data.plaats +"</td></tr>");
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Aangeboden aan:</td><td> "+ data.intVoornaam + " "+ data.intAchternaam +"</td></tr>");
-					if(data.reactie != "null" ){
+					if(data.reactie != "null" || data.reactie != ""){
 						$("#vacaturen").append("<tr id='info' class='tr'><td>Reactie:</td><td colspan='3'>" + data.reactie + "</td></tr>");
 					}
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Werkvlakken: </td><td>" + arrays[0] + "</td><td>" + arrays[1] + "</td><td>" + arrays[2] + "</td></tr>");
