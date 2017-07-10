@@ -31,7 +31,7 @@ function getVacature(){
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Bedrijf:</td><td>" + data.bedrijf + "</td><td>Functie:</td><td> "+ data.functie +"</td></tr>");		
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Postcode:</td><td> "+ data.postcode +"</td><td>Plaats: </td><td>"+ data.plaats +"</td></tr>");
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Aangeboden door:</td><td> "+ data.parVoornaam + " "+ data.parAchternaam +"</td></tr>");
-					if(data.uitleg != "null" ){
+					if(data.uitleg != "" && data.uitleg != "null" && data.uitleg != null){
 						$("#vacaturen").append("<tr id='info' class='tr'><td>Uitleg:</td><td colspan='3'>" + data.uitleg + "</td></tr>");
 					}
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Werkvlakken: </td><td>" + arrays[0] + "</td><td>" + arrays[1] + "</td><td>" + arrays[2] + "</td></tr>");
@@ -39,12 +39,15 @@ function getVacature(){
 						$("#vacaturen").append("<tr><td></td><td>" + arrays[i] + "</td><td>" + arrays[i + 1] + "</td><td>" + arrays[i + 2] + "</td></tr>");
 						i = i + 3
 					};
-					if(data.reactie != ""){
+					if(data.reactie != "null" && data.reactie != "" && data.reactie != null){
 						$("#vacaturen").append('<tr><td>Reactie:</td><td colspan="3"><form><textarea placeholder="Reactie" id="reactie" name="reactie" onkeyup="auto_grow(this)">'+ data.reactie +'</textarea></form></td></tr>');
 					}else{
 						$("#vacaturen").append('<tr><td>Reactie:</td><td colspan="3"><form><textarea placeholder="Reactie" id="reactie" name="reactie" onkeyup="auto_grow(this)"></textarea></form></td></tr>');
 					}
 					$("#vacaturen").append('<tr><td></td><td colspan="3"><input type="button" value="Reactie Plaatsen" id="reactiePlaatsen" onclick="reactieplaatsen()"/></td></tr>');
+					
+					
+					
 					
 					$("#vacaturenMob").empty(); //mobiel
 					var array = data.werkvlakken.replace("{","")
@@ -53,14 +56,14 @@ function getVacature(){
 					$("#vacaturenMob").append("<tr id='info' class='tr'><td>Bedrijf:</td><td>" + data.bedrijf + "</td></tr><tr><td>Functie:</td><td> "+ data.functie +"</td></tr>");		
 					$("#vacaturenMob").append("<tr id='info' class='tr'><td>Postcode:</td><td> "+ data.postcode +"</td></tr><tr><td>Plaats: </td><td>"+ data.plaats +"</td></tr>");
 					$("#vacaturenMob").append("<tr id='info' class='tr'><td>Aangeboden door:</td><td> "+ data.parVoornaam + " "+ data.parAchternaam +"</td></tr>");
-					if(data.uitleg != "null" ){
+					if(data.uitleg != "" && data.uitleg != "null" && data.uitleg != null){
 						$("#vacaturenMob").append("<tr id='info' class='tr'><td>Uitleg:</td><td colspan='3'>" + data.uitleg + "</td></tr>");
 					}
 					$("#vacaturenMob").append("<tr id='info' class='tr'><td>Werkvlakken: </td><td>" + arrays[0] + "</td></tr>");
 					for (var i = 1; i < arrays.length; i++) {
 						$("#vacaturenMob").append("<tr><td></td><td>" + arrays[i] + "</td></tr>");
 					};
-					if(data.reactie != ""){
+					if(data.reactie != "null" && data.reactie != "" && data.reactie != null){
 						$("#vacaturenMob").append('<tr><td>Reactie:</td><td><form><textarea placeholder="Reactie" id="reactie" name="reactie" onkeyup="auto_grow(this)">'+ data.reactie +'</textarea></form></td></tr>');
 					}else{
 						$("#vacaturenMob").append('<tr><td>Reactie:</td><td><form><textarea placeholder="Reactie" id="reactie" name="reactie" onkeyup="auto_grow(this)"></textarea></form></td></tr>');
