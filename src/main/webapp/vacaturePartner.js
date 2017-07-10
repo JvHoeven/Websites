@@ -39,7 +39,7 @@ function getVacature(){
 						$("#vacaturen").append("<tr><td></td><td>" + arrays[i] + "</td><td>" + arrays[i + 1] + "</td><td>" + arrays[i + 2] + "</td></tr>");
 						i = i + 3
 					};
-					if(data.uitleg != ""){
+					if(data.uitleg != "" || data.uitleg != "null"){
 						$("#vacaturen").append('<tr><td>Uitleg:</td><td colspan="3"><form><textarea placeholder="Uitleg" id="uitleg" name="uitleg" onkeyup="auto_grow(this)">'+ data.uitleg +'</textarea></form></td></tr>');
 					}else{
 						$("#vacaturen").append('<tr><td>Uitleg:</td><td colspan="3"><form><textarea placeholder="Uitleg" id="uitleg" name="uitleg" onkeyup="auto_grow(this)"></textarea></form></td></tr>');
