@@ -70,6 +70,7 @@ public class Connection {
 		List<Vacature> all = provider.getAllVacatures(id, role);
 		JsonArrayBuilder vacatures = Json.createArrayBuilder();
 		for(Vacature v : all){
+			Interimmer inte = provider.getInterimmer(v.getInterimmerId());
 			JsonObjectBuilder alleVacatures = Json.createObjectBuilder();
 			alleVacatures.add("bedrijf", v.getBedrijf());
 			alleVacatures.add("plaats", v.getPlaats());
@@ -77,6 +78,8 @@ public class Connection {
 			alleVacatures.add("id", v.getId());
 			alleVacatures.add("werkvlakken", v.getWerkvlakken().toString());
 			alleVacatures.add("functie", v.getFunctie());
+			alleVacatures.add("intVoornaam", inte.getNaam());
+			alleVacatures.add("intAchternaam", inte.getAchternaam());
 			
 			vacatures.add(alleVacatures);
 			alleVacatures = null;
