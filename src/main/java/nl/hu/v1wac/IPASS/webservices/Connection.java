@@ -56,7 +56,7 @@ public class Connection {
 	
 	@GET
 	@Path("/loggedin")
-	@RolesAllowed({"Interimmer", "admin"})
+	@RolesAllowed({"Interimmer", "admin", "Partner"})
 	@Produces("application/json")
 	public Response loggedin() {
 		return Response.ok().build();
