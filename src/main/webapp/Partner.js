@@ -30,7 +30,7 @@ function getVacatures(){
 				}
 				$("#vhead").empty();
 				$("#vbody").empty();
-				$("#vhead").append("<tr><th>Bedrijf</th><th>Plaats</th><th>Functie</th><th>Aangeboden aan</th></tr>")
+				$("#vhead").append("<tr><th>Bedrijf</th><th>Plaats</th><th>Functie</th><th>Aan</th></tr>")
 				$.each(data, function(i, dat) {
 					codes = '"' + dat.id + '"'
 					$("#vbody").append("<tr id='info' class='tr' onclick='getVacature("+ codes +")'><td id='bedrijf' class='td1'>" + dat.bedrijf + "</td><td id='plaats' class='td2'>"+ dat.plaats +"</td><td id='functie' class='td3'>"+ dat.functie +"</td><td id='aan' class='td3'>"+ dat.intVoornaam +" "+ dat.intAchternaam +"</td></tr>");
