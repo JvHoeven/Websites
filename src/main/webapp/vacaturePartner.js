@@ -100,7 +100,7 @@ function nee(){
 }
 
 function plaats(){
-	var uri = "/IPASS/restservices/data/reactie/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID") + "/" + $("#uitleg").val();
+	var uri = "/restservices/data/reactie/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID") + "/" + $("#uitleg").val();
 	$.ajax(uri, {
 		type: "put",
 		beforeSend: function (xhr) {

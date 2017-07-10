@@ -97,7 +97,7 @@ function nee(){
 }
 
 function plaats(){
-	var uri = "/IPASS/restservices/data/reactie/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID") + "/" + $("#reactie").val();
+	var uri = "/restservices/data/reactie/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID") + "/" + $("#reactie").val();
 	$.ajax(uri, {
 		type: "put",
 		beforeSend: function (xhr) {
@@ -108,7 +108,7 @@ function plaats(){
 			$("#modal").html('<div>De reactie is opgeslagen</div><input type="button" id="Oke" onclick="away()" value="oke">')
 		},
 		error: function(response) {
-			$("#modal").html('<div>er ging iet fout bij het opslaan</div><input type="button" id="Oke" onclick="nee" value="oke">')
+			$("#modal").html('<div>er ging iet fout bij het opslaan</div><input type="button" id="Oke" onclick="nee()" value="oke">')
 		},
 	});
 }
