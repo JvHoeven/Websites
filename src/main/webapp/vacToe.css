@@ -18,6 +18,11 @@ input, select {
 .hover:hover{
 	background-color: #e8e3e3;
 }
+
+#plus, #min{
+	width: 10%;
+}
+
 .hovertext:hover{
 	color: #a30b13;
 }
