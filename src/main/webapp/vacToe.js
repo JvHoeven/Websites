@@ -17,7 +17,7 @@ function opslaan(){
 	var teller;
 	teller = tellerToevoegen;
 		while(teller >= 0){
-			array.push($("#werkvlakken" + teller).val());
+			array.push($("#werkvlakkenVac" + teller).val());
 			teller -= 1;
 		}
 	arrayAsAString = array.join(",");

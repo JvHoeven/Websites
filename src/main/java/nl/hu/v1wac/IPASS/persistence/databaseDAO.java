@@ -184,23 +184,12 @@ public class databaseDAO extends BaseDAO{
 	}
 	
 	public Vacature saveVacature(int id, Vacature v){
-		ResultSet result = null;
 		String bedrijf = v.getBedrijf();
 		String plaats = v.getPlaats();
 		String postcode = v.getPostcode();
 		String werkvlakken = v.getWerkvlakken();
 		String functie = v.getFunctie();
 		String query = "INSERT INTO vacature (partner_id, bedrijf, plaats, postcode, werkvlakken, functie) VALUES ("+id+", '"+bedrijf+"', '"+plaats+"', '"+postcode+"', '"+werkvlakken+"', '"+functie+"')";
-		try (Connection con = super.getConnection()){
-			Statement stmt = con.createStatement();
-			stmt.executeUpdate(query);
-		} catch (SQLException sqle) { sqle.printStackTrace(); }
-		query = "SELECT vacature_id FROM vacature WHERE partner_id="+id+" AND bedrijf = '"+bedrijf+"' AND plaats ='"+plaats+"' AND postcode='"+postcode+"' AND werkvlakken='"+werkvlakken+"', AND functie='"+functie+"' AND interimmer_id IS NULL;";
-		try (Connection con = super.getConnection()){
-			Statement stmt = con.createStatement();
-			result = stmt.executeQuery(query);
-		} catch (SQLException sqle) { sqle.printStackTrace(); }
-		query = "INSERT INTO communicatie (partner_id, vacature_id)VALUES ("+id+", "+result+")";
 		try (Connection con = super.getConnection()){
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(query);
