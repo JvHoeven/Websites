@@ -200,6 +200,10 @@ th {
     background-color: #be1e2d;
 }
 
+#home:hover, #gegevensBewerken:hover, #vacature:hover, #logout:hover{
+	background-color: #a30b13;
+}
+
 .pad{
 	padding: 8px;
 }

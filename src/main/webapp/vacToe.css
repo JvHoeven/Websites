@@ -1,4 +1,4 @@
-input {
+input, select {
 	margin-left: auto;
     margin-right: auto;
 	margin-top: 1%;
@@ -191,23 +191,6 @@ ul{
     border:0 !important;
     font-weight: bold;
     background-color: #be1e2d;
-}
-
-select{
-	margin-left: auto;
-    margin-right: auto;
-	margin-top: 1%;
-    display: block;
-    box-sizing: border-box;
-    position: center;
-    width: 70%;
-    border-radius:32px;
-    text-align: center;
-    font-size: 13px;
-    font-family: Ubuntu, sans-serif;
-    border:0 !important;
-    font-weight: bold;
-    height: 35px;
 }
 
 #home:hover, #gegevensBewerken:hover, #vacature:hover, #logout:hover{
