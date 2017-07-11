@@ -12,7 +12,7 @@ function newLine(){
 	
 }
 
-function opslaan(){
+function vacToe(){
 	var array = [];
 	var teller;
 	teller = tellerToevoegen;
@@ -55,7 +55,6 @@ function loggedin() {
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 		},
 		success: function (data) {
-			getInterimmer();
 		},
 		error: function (data) {
 			window.location="https://ipasswebservice.herokuapp.com/";
