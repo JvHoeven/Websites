@@ -12,7 +12,7 @@ function newLine(){
 	
 }
 
-function vacToe(){
+function opslaan(){
 	var array = [];
 	var teller;
 	teller = tellerToevoegen;
