@@ -56,4 +56,8 @@ public class DataService {
 	public int plaatsWerkvlakken(int id, String waar, String werkvlakken){
 		return DataBaseDAO.plaatsWerkvlakken(werkvlakken, id, waar);
 	}
+	
+	public Vacature saveVacature(int id, Vacature v){
+		return DataBaseDAO.saveVacature(id, v);
+	}
 }

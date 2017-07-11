@@ -197,5 +197,16 @@ public class Connection {
 	}
 	}
 	
+	@POST
+	@Path("/saveVac/{id}/{werkvlak}")
+	@RolesAllowed({"Partner"})
+	@Produces("application/json")
+	public Response saveVacature(@PathParam("id") int id,  @FormParam("bedrijf") String b, @PathParam("werkvlak") String werkvlakken, @FormParam("plaats") String p, @FormParam("postcode") String code, @FormParam("functie") String f){
+		Vacature v = new Vacature(code, p, b, werkvlakken, 0, f, id, 0);
+		provider.saveVacature(id, v);
+		return Response.ok().build();
+	}
+		
+	
 	
 }
