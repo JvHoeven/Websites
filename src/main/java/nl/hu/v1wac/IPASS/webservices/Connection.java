@@ -63,11 +63,11 @@ public class Connection {
 	}
 	
 	@GET
-	@Path("/vacatures/{id}/{role}")
+	@Path("/vacatures/{id}/{role}/{yn}")
 	@RolesAllowed({"Interimmer", "Partner"})
 	@Produces("application/json")
-	public String getVacatures(@PathParam("id") int id, @PathParam("role") String role){
-		List<Vacature> all = provider.getAllVacatures(id, role);
+	public String getVacatures(@PathParam("id") int id, @PathParam("role") String role, @PathParam("yn") String yn){
+		List<Vacature> all = provider.getAllVacatures(id, role, yn);
 		JsonArrayBuilder vacatures = Json.createArrayBuilder();
 		for(Vacature v : all){
 			Interimmer inte = provider.getInterimmer(v.getInterimmerId());

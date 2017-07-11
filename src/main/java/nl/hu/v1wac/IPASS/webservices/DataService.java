@@ -25,8 +25,8 @@ public class DataService {
 		return DataBaseDAO.getIdRole(gn, ww);
 	}
 
-	public List<Vacature> getAllVacatures(int id, String role) {
-		return DataBaseDAO.getAllVactures(id, role);
+	public List<Vacature> getAllVacatures(int id, String role, String yn) {
+		return DataBaseDAO.getAllVactures(id, role, yn);
 	}
 	
 	public Vacature getVacature(int id, String role, int vacID){

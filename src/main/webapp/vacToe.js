@@ -16,6 +16,7 @@ function opslaan(){
 	var array = [];
 	var teller;
 	teller = tellerToevoegen;
+	teller -= 1;
 		while(teller >= 0){
 			array.push($("#werkvlakkenVac" + teller).val());
 			teller -= 1;

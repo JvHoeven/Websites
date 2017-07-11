@@ -152,9 +152,9 @@ public class databaseDAO extends BaseDAO{
 		return result;
 	}
 
-	public List<Vacature> getAllVactures(int id, String role) {
+	public List<Vacature> getAllVactures(int id, String role, String yn) {
 		List<Vacature> resultsList = new ArrayList<Vacature>();
-		String query = "SELECT vacature_id, bedrijf, plaats, postcode, werkvlakken, functie, partner_id, interimmer_id FROM vacature WHERE " + role + "_id=" + id;
+		String query = "SELECT vacature_id, bedrijf, plaats, postcode, werkvlakken, functie, partner_id, interimmer_id FROM vacature WHERE " + role + "_id=" + id + "AND interimmer_id " + yn;
 		try (Connection con = super.getConnection()){
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
@@ -189,7 +189,7 @@ public class databaseDAO extends BaseDAO{
 		String postcode = v.getPostcode();
 		String werkvlakken = v.getWerkvlakken();
 		String functie = v.getFunctie();
-		String query = "INSERT INTO vacature (partner_id, bedrijf, plaats, postcode, werkvlakken, functie) VALUES ("+id+", '"+bedrijf+"', '"+plaats+"', '"+postcode+"', '"+werkvlakken+"', '"+functie+"')";
+		String query = "INSERT INTO vacature (interimmer_id, partner_id, bedrijf, plaats, postcode, werkvlakken, functie) VALUES (0, "+id+", '"+bedrijf+"', '"+plaats+"', '"+postcode+"', '"+werkvlakken+"', '"+functie+"')";
 		try (Connection con = super.getConnection()){
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(query);
