@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"  media="only screen and (min-width: 900px)" type="text/css" href="bewerken.css">
+	<link rel="stylesheet"  media="only screen and (max-width: 900px)" type="text/css" href="bewerkenMobiel.css">
+	</head>
+	<body onload="loggedin()">
+		<div id="frame">
+	<div id="banner"><table class="wid" id="PCMASTER"><tr class="wid"><td class="pad"><img src="TPF_logo.png" alt="logo" style="width:auto;height:30%;"></td><td class="com"><input type="button" value="Home" id="home" onclick="away()"/></td><td class="com"><input type="button" onclick="red()" value="Gegevens Bewerken" id="gegevensBewerken"/></td><td class="com"><input type="button" value="Vacature toevoegen" id="vacature" onclick="vacature()"/></td><td class="com"><input type="button" value="Logout" id="logout" onclick="logout()"/></td></tr></table>
+				<table class="wid" id="mobiel">
+					<tr class="wid">
+						<td class="pad" colspan="2"><img src="TPF_logo.png" alt="logo" style="width:auto;height:20%;"></td>
+					</tr>
+					<tr>
+						<td class="com"><input type="button" value="Home" id="home" onclick="away()"/></td>
+						<td class="com"><input type="button" value="Gegevens Bewerken" id="gegevensBewerken" onclick="red()"/></td>
+					</tr>
+					<tr>
+						<td class="com"><input type="button" value="Vacature toevoegen" id="vacature" onclick="vacature()"/></td>
+						<td class="com"><input type="button" value="Logout" id="logout" onclick="logout()"/></td>
+					</tr>
+				</table>
+			</div>	
+			<div id="updaten">
+					<form id="update">
+					<input type="text" placeholder="Bedrijf"  id="bedrijf" name="bedrijf" class="hover" required />
+					<input type="text" placeholder="Postcode"  id="postcode" name="postcode" class="hover" required />
+					<input type="text" placeholder="Functie"  id="functie" name="functie" class="hover" required />
+					<input type="text" placeholder="Plaats"  id="Plaats" name="Plaats" class="hover" required />
+					<select id="werkvlakkenVac" name="werkvlakkenVac">
+						<option value="webdeveloper">Webdeveloper</option>
+						<option value="administaratiefmedewerker">Administaratief Medewerker</option>
+						<option value="directie">Directie</option>
+						<option value="teamleider">teamleider</option>
+					</select>
+					<input type="button" id="plus" value="+" onclick="newLine()"/>
+					<input type="button" id="min" value="-" onclick="wegLine()"/>
+					<input type="button" id="vacToe" value="Toevoegen" onclick="vacToe()"/>
+					</form>
+			</div>
+			<div id="contact">
+				<ul id="navigation">
+					
+						<li class="block"><div id="titel">The Perfect Fit</div>
+							<ul id="informatieOver">
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/129114/id/129114/bb/1/fm_parentid/129079">Over ons</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130361/id/130361/bb/1/fm_parentid/129079">Missie</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130379/id/130379/bb/1/fm_parentid/129079">Interim professionals</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/page/network/command/custlist/cms_categorie/130381/bb/1/aid/130381">Businesspartners</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/page/network/command/custlist/cms_categorie/130382/bb/1/aid/130382">Opdrachtgevers</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/page/mailings/bb/1/cms_categorie/129079/aid/130346">Nieuwsarchief</a></li>
+							</ul>
+						</li>
+						
+						<li class="block"><div id="titel">Diensten</div>
+							<ul id="DienstenInfo">
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130332/id/130332/bb/1/fm_parentid/129076">Bedrijfswaardering</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130338/id/130338/bb/1/fm_parentid/129076">Project en interimmanagement</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130336/id/130336/bb/1/fm_parentid/129076">Part time controller of CFO</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130337/id/130337/bb/1/fm_parentid/129076">Procesoptimalisatie</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130341/id/130341/bb/1/fm_parentid/129076">Verandertrajecten</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130335/id/130335/bb/1/fm_parentid/129076">Managementinformatie</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130331/id/130331/bb/1/fm_parentid/129076">Aan- en verkoopbegeleiding</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130339/id/130339/bb/1/fm_parentid/129076">Risico management</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130333/id/130333/bb/1/fm_parentid/129076">Credit management</a></li>
+							</ul>
+						</li>
+					
+						<li class="block"><div id="titel">Kenmerken</div>
+							<ul id="kenmerkeninfo">
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/129083/id/129083/bb/1/fm_parentid/129082">Rood</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/129084/id/129084/bb/1/fm_parentid/129082">Beeldmerk</a></li>
+								<li class="hovertext"><a target="_self" href="https://www.theperfectfit.nl/index.php/cms_categorie/130384/id/130384/bb/1/fm_parentid/129082">De giraffe</a></li>
+							</ul>
+						</li>
+					
+					<li id="info" class="block">
+						<div id="titel">Contact</div>
+						<div id="contactgeg">
+							Graadt van Roggenweg 328-334
+							<br>
+							3531 AH Utrecht
+							<br>
+							The Netherlands
+							<br>
+							+31 (0)30 298 22 02
+							<br id="red">
+							<a href="mailto:info@theperfectfit.nl">info@theperfectfit.nl</a>
+							<br id="red">
+							<a href="https://www.theperfectfit.nl">www.theperfectfit.nl</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="myModal" class="modal">
+
+			  <!-- Modal content -->
+			  	<div id="modal" class="modal-content">
+			  	</div>
+			
+			</div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script src="bewerken.js"></script>
+</html>

@@ -1,27 +1,53 @@
-table {
-    text-align: left;
-    font-size: 20px;
-    font-family: Ubuntu, sans-serif;
-    background-color: white;
-    width: 40%;
-}
-
-#vacatures{
-	margin-top: 2%;
-	heigth: auto;
-	margin-bottom: 2%;
+input {
 	margin-left: auto;
     margin-right: auto;
+	margin-top: 1%;
+    display: block;
+    box-sizing: border-box;
+    position: center;
+    width: 40%;
+    border-radius:32px;
+    text-align: center;
+    font-size: 13px;
+    font-family: Ubuntu, sans-serif;
+    border:0 !important;
+    font-weight: bold;
+    height: 40px;
 }
 
-#info:hover{
-	color: #e8e3e3;
+.hover:hover{
+	background-color: #e8e3e3;
+}
+.hovertext:hover{
+	color: #a30b13;
+}
+
+#registreren, #Oke{
+	font-size: 13px;
+    font-family: Ubuntu, sans-serif;
+	background-color: #be1e2d;
+	color: white;
+	margin-bottom: 2%;
+}
+
+#username{
+	margin-top: 2%;
+}
+
+#registreren:hover, #Oke:hover{
+	background-color: #a30b13;
+}
+
+.center {
+    margin: 20px;
+    width: 60%;
+    padding: 10px;
 }
 
 #frame {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 2fr 4fr;
+	grid-template-rows: 0.3fr 2.9fr 1.70fr;
 }
 
 #banner {
@@ -30,14 +56,12 @@ table {
 	background-color: white;
 }
 
-#loging {
+#updaten {
 	grid-column: 1;
 	grid-row: 2/3;
 	background-image: url("giraffe die rennen.png");
 	background-repeat: no-repeat;
     background-size: auto 100%;
-    vertical-align: middle;
-    display: table-cell;
 }
 
 #contact {
@@ -54,7 +78,6 @@ html{
     margin:0;
    	padding:0;
    	height:100%;
-   	width: 100%;
 }
 body{
     min-height:100%;
@@ -84,9 +107,11 @@ body{
 }
 
 .block{
+	float: left;
+    display: list-item;
     list-style: none;
     text-align:left;
-    margin-top: 5%;
+    display: inline;
     margin-left: 5%;
 }
 
@@ -99,6 +124,7 @@ a{
 ul{
 	padding: 0;
 	list-style-type: none;
+	display: inline;
 }
 
 /* The Modal (background) */
@@ -129,42 +155,8 @@ ul{
 	text-align: center;
 }
 
-#table-scroll {
-  max-height: 375px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.td1{
-	width: 33%;
-}
-
-.td2{
-	width: 30%;
-}
-
-.td3{
-	width: 37%;
-}
-
-.tr{
-	width: 100%
-}
-
-table {
-    border-collapse: collapse;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr#info:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #be1e2d;
-    color: white;
+.pad{
+	padding: 8px;
 }
 
 .com{
@@ -174,17 +166,18 @@ th {
 	padding: 8px;
 }
 
+
 .wid{
 	width: 100%;
-	height: 33%;
+	height: 100%;
 	border-collapse: collapse;
 	text-align: left;
 }
 
-#home, #gegevensBewerken, #vacature, #logout{
+#home, #gegevensBewerken, #werkvlakken, #logout{
 	color: white;
 	font-weight: bold;
-	height: 100%;
+	height: 40%;
 	margin : 0 auto;
 	margin-top: 1%;
     display: block;
@@ -200,14 +193,10 @@ th {
     background-color: #be1e2d;
 }
 
-.pad{
-	padding: 8px;
-}
-
-#PCMASTER{
-	display: none;
-}
-
-#home:hover, #gegevensBewerken:hover, #vacature:hover, #logout:hover{
+#home:hover, #gegevensBewerken:hover, #werkvlakken:hover, #logout:hover{
 	background-color: #a30b13;
+}
+
+#mobiel, #vacatureMob{
+	display: none;
 }

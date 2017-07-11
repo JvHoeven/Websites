@@ -58,8 +58,8 @@ function red(){
 	window.location="bewerken.html";
 }
 
-function werkvlakken(){
-	window.location="werkvlakken.html";
+function vacature(){
+	window.location="vacToe.html";
 }
 
 //Get the modal
