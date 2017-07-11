@@ -4,10 +4,10 @@ function newLine(){
 	$("#plus").remove();
 	$("#min").remove();
 	$("#vacToe").remove();
-	$("#werkvlakkenToevoegen").append('<select id="werkvlakken'+ tellerToevoegen +'" name="werkvlakken'+ tellerToevoegen +'"><option value="webdeveloper">Webdeveloper</option><option value="administaratiefmedewerker">administaratiefmedewerker</option><option value="directie">Directie</option><option value="teamleider">teamleider</option></select>')
-	$("#werkvlakkenToevoegen").append('<input type="button" id="plus" value="+" onclick="newLine()"/>')
-	$("#werkvlakkenToevoegen").append('<input type="button" id="min" value="-" onclick="wegLine()"/>')
-	$("#werkvlakkenToevoegen").append('<input type="button" id="vacToe" value="Toevoegen" onclick="vacToe()"/>')
+	$("#update").append('<select id="werkvlakken'+ tellerToevoegen +'" name="werkvlakken'+ tellerToevoegen +'"><option value="webdeveloper">Webdeveloper</option><option value="administaratiefmedewerker">administaratiefmedewerker</option><option value="directie">Directie</option><option value="teamleider">teamleider</option></select>')
+	$("#update").append('<input type="button" id="plus" value="+" onclick="newLine()"/>')
+	$("#update").append('<input type="button" id="min" value="-" onclick="wegLine()"/>')
+	$("#update").append('<input type="button" id="vacToe" value="Toevoegen" onclick="vacToe()"/>')
 	tellerToevoegen += 1;
 	
 }
