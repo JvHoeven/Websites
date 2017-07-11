@@ -167,7 +167,7 @@ ul{
 	text-align: left;
 }
 
-#home, #gegevensBewerken, #werkvlakken, #logout{
+#home, #gegevensBewerken, #vacature, #logout{
 	color: white;
 	font-weight: bold;
 	height: 100%;
@@ -186,7 +186,7 @@ ul{
     background-color: #be1e2d;
 }
 
-#home:hover, #gegevensBewerken:hover, #werkvlakken:hover, #logout:hover{
+#home:hover, #gegevensBewerken:hover, #vacature:hover, #logout:hover{
 	background-color: #a30b13;
 }
 
