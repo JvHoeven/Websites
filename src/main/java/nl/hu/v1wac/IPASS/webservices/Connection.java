@@ -215,6 +215,8 @@ public class Connection {
 		String lin = null;
 		List<Interimmer> all = provider.getAllInterimmers();
 		
+		JsonArrayBuilder interimmer = Json.createArrayBuilder();
+
 		for(Interimmer i : all){
 			if(i.getLink() == null){
 				lin = "";
