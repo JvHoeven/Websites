@@ -15,6 +15,7 @@ function newLine(){
 function opslaan(){
 	var array = [];
 	var teller;
+	console.log("hoi1")
 	teller = tellerToevoegen;
 	teller -= 1;
 		while(teller >= 0){
@@ -31,7 +32,7 @@ function opslaan(){
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 		},
 		success: function (data) {
-			console.log("hoi")
+			console.log("hoi2")
 			if(data.length == 0){
 				$("#clear").empty();
 				$("#clear").append("<div>Er zijn helaas geen interimmers met deze eisen</div>")
@@ -46,6 +47,7 @@ function opslaan(){
 				},
 		
 		error:function (data) {
+			console.log("hoi3")
 			},
 	});
 }
