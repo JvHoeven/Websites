@@ -207,7 +207,7 @@ input:hover{
 	text-align: left;
 }
 
-#home, #zoeken, #vacature, #logout{
+#home, #zoeken, #vacatureToe, #logout{
 	color: white;
 	font-weight: bold;
 	height: 100%;
@@ -226,7 +226,7 @@ input:hover{
     background-color: #be1e2d;
 }
 
-#home:hover, #zoeken:hover, #vacature:hover, #logout:hover{
+#home:hover, #zoeken:hover, #vacatureToe:hover, #logout:hover{
 	background-color: #a30b13;
 }
 
