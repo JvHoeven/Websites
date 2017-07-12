@@ -37,16 +37,30 @@ public class Connection {
 		List<Interimmer> zoekende = new ArrayList<Interimmer>();
 		JsonArrayBuilder interimmer = Json.createArrayBuilder();
 		for(Interimmer i: all){
-			if(i.getNaam().toLowerCase().contains(vn.toLowerCase()) && i.getAchternaam().toLowerCase().contains(an.toLowerCase()) && i.getWoonplaats().toLowerCase().contains(woon.toLowerCase()) && i.getPostcode().toLowerCase().contains(post.toLowerCase()) && i.getEmail().toLowerCase().contains(email.toLowerCase()) && i.getMinimumloon() <= miniLoon && String.valueOf(i.getTelefoonnummer()).contains(tel) ){
-				String[] werk = werkvlak.split(",");
-				for(String w : werk){
-					if(i.getGewildeWerkvlakken().contains(w) || i.getVoorgaandeWerkvlakken().contains(w)){
-						zoekende.add(i);
+			if(i.getNaam().toLowerCase().contains(vn.toLowerCase()) || vn.equals("")){
+				if(i.getAchternaam().toLowerCase().contains(an.toLowerCase()) || an.equals("")){
+					if(i.getWoonplaats().toLowerCase().contains(woon.toLowerCase()) || woon.equals("")){
+						if(i.getPostcode().toLowerCase().contains(post.toLowerCase()) || post.equals("")){
+							if(i.getEmail().toLowerCase().contains(email.toLowerCase()) || email.equals("")){
+								if(i.getMinimumloon() <= miniLoon || miniLoon == 0.0){
+									if(werkvlak.equals("0")){
+										zoekende.add(i);
+									}else{
+									String[] werk = werkvlak.split(",");
+									for(String w : werk){
+										if(i.getGewildeWerkvlakken().contains(w) || i.getVoorgaandeWerkvlakken().contains(w)){
+											zoekende.add(i);
+										}
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 		}
-		for(Interimmer i : all){
+		for(Interimmer i : zoekende){
 			if(i.getLink() == null){
 				lin = "";
 			}else{
