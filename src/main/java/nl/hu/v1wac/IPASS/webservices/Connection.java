@@ -214,18 +214,7 @@ public class Connection {
 	public String zoek(@PathParam("werkvlak") String werkvlak, @FormParam("voornaam") String vn, @FormParam("achternaam") String an, @FormParam("geboortedatum") String datum, @FormParam("woonplaats") String woon, @FormParam("postcode") String post, @FormParam("email") String email, @FormParam("linkedinLink") String link, @FormParam("minimumloon") double miniLoon, @FormParam("telefoonnummer") String tel){
 		String lin = null;
 		List<Interimmer> all = provider.getAllInterimmers();
-		List<Interimmer> zoekende = new ArrayList<Interimmer>();
-		JsonArrayBuilder interimmer = Json.createArrayBuilder();
-		for(Interimmer i: all){
-			if(i.getNaam().toLowerCase().contains(vn.toLowerCase()) && i.getAchternaam().toLowerCase().contains(an.toLowerCase()) && i.getWoonplaats().toLowerCase().contains(woon.toLowerCase()) && i.getPostcode().toLowerCase().contains(post.toLowerCase()) && i.getEmail().toLowerCase().contains(email.toLowerCase()) && i.getMinimumloon() <= miniLoon && String.valueOf(i.getTelefoonnummer()).contains(tel) ){
-				String[] werk = werkvlak.split(",");
-				for(String w : werk){
-					if(i.getGewildeWerkvlakken().contains(w) || i.getVoorgaandeWerkvlakken().contains(w)){
-						zoekende.add(i);
-					}
-				}
-			}
-		}
+		
 		for(Interimmer i : all){
 			if(i.getLink() == null){
 				lin = "";
