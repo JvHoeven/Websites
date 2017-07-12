@@ -207,7 +207,7 @@ input:hover{
 	text-align: left;
 }
 
-#home, #gegevensBewerken, #vacature, #logout{
+#home, #zoeken, #vacature, #logout{
 	color: white;
 	font-weight: bold;
 	height: 100%;
@@ -226,7 +226,7 @@ input:hover{
     background-color: #be1e2d;
 }
 
-#home:hover, #gegevensBewerken:hover, #vacature:hover, #logout:hover{
+#home:hover, #zoeken:hover, #vacature:hover, #logout:hover{
 	background-color: #a30b13;
 }
 

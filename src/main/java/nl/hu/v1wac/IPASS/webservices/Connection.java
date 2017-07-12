@@ -216,7 +216,7 @@ public class Connection {
 		List<Interimmer> zoekende = new ArrayList<Interimmer>();
 		JsonArrayBuilder interimmer = Json.createArrayBuilder();
 		for(Interimmer i: all){
-			if(i.getNaam().toLowerCase().contains(vn.toLowerCase()) && i.getAchternaam().toLowerCase().contains(an.toLowerCase()) && i.getWoonplaats().toLowerCase().contains(woon.toLowerCase()) && i.getPostcode().toLowerCase().contains(post.toLowerCase()) && i.getEmail().toLowerCase().contains(email.toLowerCase()) && i.getMinimumloon() <= miniLoon && String.valueOf(i.getTelefoonnummer()).contains(tel) ){
+			if(i.getNaam().toLowerCase().contains(vn.toLowerCase())){
 				String[] werk = werkvlak.split(",");
 				for(String w : werk){
 					if(i.getGewildeWerkvlakken().contains(w) || i.getVoorgaandeWerkvlakken().contains(w)){

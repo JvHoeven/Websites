@@ -181,7 +181,7 @@ th {
 	text-align: left;
 }
 
-#home, #gegevensBewerken, #vacature, #logout{
+#home, #zoeken, #vacature, #logout{
 	color: white;
 	font-weight: bold;
 	height: 100%;
@@ -208,6 +208,6 @@ th {
 	display: none;
 }
 
-#home:hover, #gegevensBewerken:hover, #vacature:hover, #logout:hover{
+#home:hover, #zoeken:hover, #vacature:hover, #logout:hover{
 	background-color: #a30b13;
 }
