@@ -31,6 +31,7 @@ function opslaan(){
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 		},
 		success: function (data) {
+			console.log(data)
 			if(data.length == 0){
 				$("#clear").empty();
 				$("#clear").append("<div>Er zijn helaas geen interimmers met deze eisen</div>")
