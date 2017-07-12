@@ -32,46 +32,7 @@ public class Connection {
 	@RolesAllowed({"Partner"})
 	@Produces("application/json")
 	public String zoek(@PathParam("werkvlak") String werkvlak, @FormParam("voornaam") String vn, @FormParam("achternaam") String an, @FormParam("geboortedatum") String datum, @FormParam("woonplaats") String woon, @FormParam("postcode") String post, @FormParam("email") String email, @FormParam("linkedinLink") String link, @FormParam("minimumloon") double miniLoon, @FormParam("telefoonnummer") String tel){
-		String lin = null;
-		List<Interimmer> all = provider.getAllInterimmers();
-		List<Interimmer> zoekende = new ArrayList<Interimmer>();
-		JsonArrayBuilder interimmer = Json.createArrayBuilder();
-		for(Interimmer i: all){
-			if(i.getNaam().toLowerCase().contains(vn.toLowerCase()) && i.getAchternaam().toLowerCase().contains(an.toLowerCase()) && i.getWoonplaats().toLowerCase().contains(woon.toLowerCase()) && i.getPostcode().toLowerCase().contains(post.toLowerCase()) && i.getEmail().toLowerCase().contains(email.toLowerCase()) && i.getMinimumloon() <= miniLoon && String.valueOf(i.getTelefoonnummer()).contains(tel) ){
-				String[] werk = werkvlak.split(",");
-				for(String w : werk){
-					if(i.getGewildeWerkvlakken().contains(w) || i.getVoorgaandeWerkvlakken().contains(w)){
-						zoekende.add(i);
-					}
-				}
-			}
-		}
-		for(Interimmer i : all){
-			if(i.getLink() == null){
-				lin = "";
-			}else{
-				lin = i.getLink();
-			}
-			JsonObjectBuilder alleInterimmer = Json.createObjectBuilder();
-			alleInterimmer.add("voornaam", i.getNaam());
-			alleInterimmer.add("achternaam", i.getAchternaam());
-			alleInterimmer.add("woonplaats", i.getWoonplaats());
-			alleInterimmer.add("postcode", i.getPostcode());
-			alleInterimmer.add("gewWerkvlakken", i.getGewildeWerkvlakken());
-			alleInterimmer.add("voorWerkvlakken", i.getVoorgaandeWerkvlakken());
-			alleInterimmer.add("email", i.getEmail());
-			alleInterimmer.add("linkedin", lin);
-			alleInterimmer.add("minimumloon", i.getMinimumloon());
-			alleInterimmer.add("telefoon", i.getTelefoonnummer());
-			alleInterimmer.add("id", i.getID());
-			
-			interimmer.add(alleInterimmer);
-			alleInterimmer = null;
-		}
-		
-		JsonArray array = interimmer.build();
-		interimmer = null;
-		return array.toString();
+		return "hoi";
 	}
 		
 	@POST

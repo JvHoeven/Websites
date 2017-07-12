@@ -53,9 +53,11 @@ function opslaan(){
 }
 
 function wegLine(){
-	if(tellerToevoegen >= 0){
+	if(tellerToevoegen != 0){
 		tellerToevoegen -= 1;
-		$("#werkvlakken" + tellerToevoegen).remove()
+		$("#werkvlakkenVac" + tellerToevoegen).remove()
+	}else{
+		$("#werkvlakkenVac" + tellerToevoegen).remove()
 	}
 }
 
