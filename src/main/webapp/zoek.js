@@ -13,42 +13,26 @@ function newLine(){
 }
 
 function opslaan(){
-	var array = [];
-	var teller;
-	console.log("hoi1")
-	teller = tellerToevoegen;
-	teller -= 1;
-		while(teller >= 0){
-			array.push($("#werkvlakkenVac" + teller).val());
-			teller -= 1;
-		}
-	arrayAsAString = array.join(",");
 	$.ajax({
-		url: "/restservices/data/zoek",
+		url: "/restservices/data/vacatures/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + "IS NOT NULL",
 		method: "GET",
-		data: $("#update").serialize(),
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 		},
 		success: function (data) {
-			console.log("hoi2")
-			if(data.length == 0){
-				$("#clear").empty();
-				$("#clear").append("<div>Er zijn helaas geen interimmers met deze eisen</div>")
-			}
-			$("#vhead").empty();
-			$("#vbody").empty();
-			$("#vhead").append("<tr><th>Naam</th><th>Plaats</th><th>Functie</th><th>Aan</th></tr>")
-			$.each(data, function(i, dat) {
-				codes = '"' + dat.id + '"'
-				$("#vbody").append("<tr id='info' class='tr' onclick='getInterimmer("+ codes +")'><td id='bedrijf' class='td1'>" + dat.voornaam +" "+ dat.achternaam + "</td><td id='plaats' class='td2'>"+ dat.woonplaats +"</td><td id='functie' class='td3'>"+ dat.postcode +"</td><td id='aan' class='td3'><a href='"+ dat.linkedin +"'>"+ dat.linkedin +"</a></td></tr>");
-			});
-				},
-		
-		error:function (data) {
-			console.log("hoi3")
-			},
+				if(data.length == 0){
+					$("#clear").empty();
+					$("#clear").append("<div>Er zijn nog geen vacatures die je hebt aangeboden</div>")
+				}
+				$("#vhead").empty();
+				$("#vbody").empty();
+				$("#vhead").append("<tr><th>Bedrijf</th><th>Plaats</th><th>Functie</th><th>Aan</th></tr>")
+				$.each(data, function(i, dat) {
+					codes = '"' + dat.id + '"'
+					$("#vbody").append("<tr id='info' class='tr' onclick='getVacature("+ codes +")'><td id='bedrijf' class='td1'>" + dat.bedrijf + "</td><td id='plaats' class='td2'>"+ dat.plaats +"</td><td id='functie' class='td3'>"+ dat.functie +"</td><td id='aan' class='td3'>"+ dat.intVoornaam +" "+ dat.intAchternaam +"</td></tr>");
+				});
+		},
 	});
 }
 
