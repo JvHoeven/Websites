@@ -226,7 +226,7 @@ public class Connection {
 				}
 			}
 		}
-		for(Interimmer i : zoekende){
+		for(Interimmer i : all){
 			if(i.getLink() == null){
 				lin = "";
 			}else{
