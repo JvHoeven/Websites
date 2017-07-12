@@ -23,7 +23,7 @@ function opslaan(){
 		}
 	arrayAsAString = array.join(",");
 	$.ajax({
-		url: "/restservices/data/zoek/"+ arrayAsAString,
+		url: "/restservices/data/zoek",
 		method: "POST",
 		data: $("#update").serialize(),
 		beforeSend: function (xhr) {
