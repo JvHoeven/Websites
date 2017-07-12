@@ -78,7 +78,7 @@ function getVacature(){
 }
 
 function red(){
-	window.location="bewerken.html";
+	window.location="zoek.html";
 }
 
 function werkvlakken(){

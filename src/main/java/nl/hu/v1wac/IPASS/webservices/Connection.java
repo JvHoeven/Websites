@@ -30,7 +30,7 @@ public class Connection {
 	@POST
 	@Produces("application/json")
 	public Response createInterimmer(@FormParam("username") String gn, @FormParam("password") String ww, @FormParam("voornaam") String vn, @FormParam("achternaam") String an, @FormParam("geboortedatum") String datum, @FormParam("woonplaats") String woon, @FormParam("postcode") String post, @FormParam("email") String email, @FormParam("linkedinLink") String link, @FormParam("minimumloon") double miniLoon, @FormParam("telefoonnummer") int tel) {
-	Interimmer newInterimmer = new Interimmer(vn, an, miniLoon, null, null, datum, woon, post, email, tel, link);
+	Interimmer newInterimmer = new Interimmer(0, vn, an, miniLoon, null, null, datum, woon, post, email, tel, link);
 	provider.saveInterimmer(newInterimmer, ww, gn);
 	return Response.ok().build();
 	}
@@ -174,7 +174,7 @@ public class Connection {
 	@RolesAllowed({"Interimmer", "Partner"})
 	@Produces("application/json")
 	public Response updateInterimmer(@FormParam("voornaam") String vn, @FormParam("achternaam") String an, @FormParam("geboortedatum") String datum, @FormParam("woonplaats") String woon, @FormParam("postcode") String post, @FormParam("email") String email, @FormParam("linkedinLink") String link, @FormParam("minimumloon") double miniLoon, @FormParam("telefoonnummer") int tel, @PathParam("id") int id) {
-	Interimmer newInterimmer = new Interimmer(vn, an, miniLoon, null, null, datum, woon, post, email, tel, link);
+	Interimmer newInterimmer = new Interimmer(id, vn, an, miniLoon, null, null, datum, woon, post, email, tel, link);
 	int result = provider.updateInterimmer(id, newInterimmer);
 	if(result == 0){
 		return Response.status(Response.Status.NOT_FOUND).build();
@@ -205,6 +205,47 @@ public class Connection {
 		Vacature v = new Vacature(code, p, b, werkvlakken, 0, f, id, 0);
 		provider.saveVacature(id, v);
 		return Response.ok().build();
+	}
+	
+	@GET
+	@Path("/zoek/{werkvlak}")
+	@RolesAllowed({"Partner"})
+	@Produces("application/json")
+	public String zoek(@PathParam("werkvlak") String werkvlak, @FormParam("voornaam") String vn, @FormParam("achternaam") String an, @FormParam("geboortedatum") String datum, @FormParam("woonplaats") String woon, @FormParam("postcode") String post, @FormParam("email") String email, @FormParam("linkedinLink") String link, @FormParam("minimumloon") double miniLoon, @FormParam("telefoonnummer") String tel){
+		List<Interimmer> all = provider.getAllInterimmers();
+		List<Interimmer> zoekende = new ArrayList<Interimmer>();
+		JsonArrayBuilder interimmer = Json.createArrayBuilder();
+		for(Interimmer i: all){
+			if(i.getNaam().toLowerCase().contains(vn.toLowerCase()) && i.getAchternaam().toLowerCase().contains(an.toLowerCase()) && i.getWoonplaats().toLowerCase().contains(woon.toLowerCase()) && i.getPostcode().toLowerCase().contains(post.toLowerCase()) && i.getEmail().toLowerCase().contains(email.toLowerCase()) && i.getMinimumloon() <= miniLoon && String.valueOf(i.getTelefoonnummer()).contains(tel) ){
+				String[] werk = werkvlak.split(",");
+				for(String w : werk){
+					if(i.getGewildeWerkvlakken().contains(w) || i.getVoorgaandeWerkvlakken().contains(w)){
+						zoekende.add(i);
+					}
+				}
+			}
+		}
+		for(Interimmer i : zoekende){
+			JsonObjectBuilder alleInterimmer = Json.createObjectBuilder();
+			alleInterimmer.add("voornaam", i.getNaam());
+			alleInterimmer.add("achternaam", i.getAchternaam());
+			alleInterimmer.add("woonplaats", i.getWoonplaats());
+			alleInterimmer.add("postcode", i.getPostcode());
+			alleInterimmer.add("gewWerkvlakken", i.getGewildeWerkvlakken());
+			alleInterimmer.add("voorWerkvlakken", i.getVoorgaandeWerkvlakken());
+			alleInterimmer.add("email", i.getEmail());
+			alleInterimmer.add("linkedin", i.getLink());
+			alleInterimmer.add("minimumloon", i.getMinimumloon());
+			alleInterimmer.add("telefoon", i.getTelefoonnummer());
+			alleInterimmer.add("id", i.getID());
+			
+			interimmer.add(alleInterimmer);
+			alleInterimmer = null;
+		}
+		
+		JsonArray array = interimmer.build();
+		interimmer = null;
+		return array.toString();
 	}
 		
 	

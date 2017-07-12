@@ -14,8 +14,10 @@ public class Interimmer {
 	String email;
 	int telefoonnummer;
 	String linkedinLink;
+	int interimmer_id;
 	
-	public Interimmer(String vn, String an, double miniLoon, String voorgaandeWerkvlakken2, String gewildeWerkvlakken2, String geb, String woon, String post, String mail, int tel, String link){
+	public Interimmer(int ID, String vn, String an, double miniLoon, String voorgaandeWerkvlakken2, String gewildeWerkvlakken2, String geb, String woon, String post, String mail, int tel, String link){
+		interimmer_id = ID;
 		voornaam = vn;
 		achternaam= an;
 		minimumloon = miniLoon;
@@ -71,5 +73,9 @@ public class Interimmer {
 	
 	public String getLink(){
 		return linkedinLink;
+	}
+	
+	public int getID(){
+		return interimmer_id;
 	}
 }

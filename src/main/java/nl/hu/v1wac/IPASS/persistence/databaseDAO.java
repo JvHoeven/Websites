@@ -15,7 +15,7 @@ import nl.hu.v1wac.IPASS.persistence.BaseDAO;
 public class databaseDAO extends BaseDAO{
 	
 	private Interimmer selectInterimmer(ResultSet dbResultSet) {
-		Interimmer newInterimmer= new Interimmer(null, null, 0, null, null, null, null, null, null, 0, null);
+		Interimmer newInterimmer= new Interimmer(0, null, null, 0, null, null, null, null, null, null, 0, null);
 			try {
 				String voornaam = dbResultSet.getString("voornaam");
 				String achternaam = dbResultSet.getString("achternaam");
@@ -28,13 +28,14 @@ public class databaseDAO extends BaseDAO{
 				String email = dbResultSet.getString("email");
 				int telefoonnummer = dbResultSet.getInt("telefoonnummer");
 				String linkedinLink = dbResultSet.getString("linkedinLink");
+				int id = dbResultSet.getInt("interimmer_id");
 				
-				newInterimmer = new Interimmer(voornaam, achternaam, minimumloon, voorgaandeWerkvlakken, gewildeWerkvlakken, geboortedatum, woonplaats, postcode, email, telefoonnummer, linkedinLink);
+				newInterimmer = new Interimmer(id, voornaam, achternaam, minimumloon, voorgaandeWerkvlakken, gewildeWerkvlakken, geboortedatum, woonplaats, postcode, email, telefoonnummer, linkedinLink);
 			}catch (SQLException sqle) { sqle.printStackTrace(); }
 			return(newInterimmer);
 }
 	public Interimmer getInterimmer(int ID) {
-		Interimmer result = new Interimmer(null, null, ID, null, null, null, null, null, null, ID, null);
+		Interimmer result = new Interimmer(0, null, null, ID, null, null, null, null, null, null, ID, null);
 		String query = "SELECT interimmer_id, voornaam, achternaam, geboortedatum, woonplaats, postcode, email, linkedinlink, minimumloon, telefoonnummer, gewildewerkvlakken, voorgaandewerkvlakken FROM interimmer WHERE interimmer_id=" + ID;
 		try (Connection con = super.getConnection()){
 			Statement stmt = con.createStatement();

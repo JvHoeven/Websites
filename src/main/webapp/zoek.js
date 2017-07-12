@@ -23,16 +23,25 @@ function opslaan(){
 		}
 	arrayAsAString = array.join(",");
 	$.ajax({
-		url: "/restservices/data/saveVac/" + window.sessionStorage.getItem("id") +"/"+ arrayAsAString,
-		method: "POST",
+		url: "/restservices/data/zoek/"+ arrayAsAString,
+		method: "GET",
 		data: $("#update").serialize(),
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 		},
 		success: function (data) {
-			$("#modal").html('<div>de vacature is opgeslagen</div><input type="button" id="Oke" onclick="away()" value="Oke">')
-			modal.style.display = "block";
+			if(data.length == 0){
+				$("#clear").empty();
+				$("#clear").append("<div>Er zijn helaas geen interimmers met deze eisen</div>")
+			}
+			$("#vhead").empty();
+			$("#vbody").empty();
+			$("#vhead").append("<tr><th>Naam</th><th>Plaats</th><th>Functie</th><th>Aan</th></tr>")
+			$.each(data, function(i, dat) {
+				codes = '"' + dat.id + '"'
+				$("#vbody").append("<tr id='info' class='tr' onclick='getInterimmer("+ codes +")'><td id='bedrijf' class='td1'>" + dat.voornaam +" "+ dat.achternaam + "</td><td id='plaats' class='td2'>"+ dat.woonplaats +"</td><td id='functie' class='td3'>"+ dat.postcode +"</td><td id='aan' class='td3'><a href='"+ dat.linkedin +"'>"+ dat.linkedin +"</a></td></tr>");
+			});
 				},
 		
 		error:function (data) {
@@ -41,7 +50,7 @@ function opslaan(){
 }
 
 function wegLine(){
-	if(tellerToevoegen != 0){
+	if(tellerToevoegen >= 0){
 		tellerToevoegen -= 1;
 		$("#werkvlakken" + tellerToevoegen).remove()
 	}

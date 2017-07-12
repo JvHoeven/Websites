@@ -2,8 +2,8 @@
 <html>
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet"  media="only screen and (min-width: 900px)" type="text/css" href="vacToe.css">
-	<link rel="stylesheet"  media="only screen and (max-width: 900px)" type="text/css" href="vacToeMobiel.css">
+	<link rel="stylesheet"  media="only screen and (min-width: 900px)" type="text/css" href="zoek.css">
+	<link rel="stylesheet"  media="only screen and (max-width: 900px)" type="text/css" href="zoekMobiel.css">
 	</head>
 	<body onload="loggedin()">
 		<div id="frame">
@@ -24,11 +24,14 @@
 			</div>	
 			<div id="updaten">
 					<form id="update">
-					<input type="text" placeholder="Bedrijf"  id="bedrijf" name="bedrijf" class="hover" required />
-					<input type="text" placeholder="Postcode"  id="postcode" name="postcode" class="hover" required />
-					<input type="text" placeholder="Functie"  id="functie" name="functie" class="hover" required />
-					<input type="text" placeholder="Plaats"  id="plaats" name="plaats" class="hover" required />
-					<select id="werkvlakkenVac0" name="werkvlakkenVac">
+					<input type="text" placeholder="Voornaam"  id="voornaam" name="voornaam" class="hover" required />
+					<input type="text" placeholder="Achternaam"  id="achternaam" name="achternaam" class="hover" required />
+					<input type="text" placeholder="Woonplaats"  id="woonplaats" name="woonplaats" class="hover" required />
+					<input type="text"  required pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" title="1234 AA of 1234AA" placeholder="Postcode" id="postcode" name="postcode" class="hover" required />
+					<input type="email"  placeholder="Email" id="email" name="email" class="hover" required />
+					<input type="number"  min="1" step="any" placeholder="Minimumloon" id="minimumloon" name="minimumloon" class="hover" required />
+					<input type="tel" placeholder="Telefoonnummer bijv. 0612345678" id="telefoonnummer" name="telefoonnummer" class="hover" />
+					<select id="werkvlakkenVac0" name="werkvlakkenVac0">
 						<option value="webdeveloper">Webdeveloper</option>
 						<option value="administaratiefmedewerker">Administaratief Medewerker</option>
 						<option value="directie">Directie</option>
@@ -36,8 +39,27 @@
 					</select>
 					<input type="button" id="plus" value="+" onclick="newLine()"/>
 					<input type="button" id="min" value="-" onclick="wegLine()"/>
-					<input type="button" id="vacToe" value="Toevoegen" onclick="opslaan()"/>
+					<input type="button" id="vacToe" value="Zoeken" onclick="opslaan()"/>
 					</form>
+					<table id="vacatures">
+					<thead id="vhead">
+					</thead>
+					<tbody>
+					<tr>
+					<td colspan="4" id="clear">
+					<div id="table-wrapper">
+					<div id="table-scroll">
+					<table class="tr">
+					<tbody id="vbody">
+					
+					</tbody>
+					</table>
+					</div>
+					</div>
+					</td>
+					</tr>
+					</tbody>
+					</table>
 			</div>
 			<div id="contact">
 				<ul id="navigation">
@@ -103,5 +125,5 @@
 			</div>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-	<script src="vacToe.js"></script>
+	<script src="zoek.js"></script>
 </html>

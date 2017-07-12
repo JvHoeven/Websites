@@ -26,7 +26,7 @@ function getVacatures(){
 		success: function (data) {
 				if(data.length == 0){
 					$("#clear").empty();
-					$("#clear").append("<div>Er zijn helaas nog geen vacatures aangeboden</div>")
+					$("#clear").append("<div>Er zijn nog geen vacatures die je hebt aangeboden</div>")
 				}
 				$("#vhead").empty();
 				$("#vbody").empty();
@@ -55,7 +55,7 @@ function logout(){
 }
 
 function red(){
-	window.location="bewerken.html";
+	window.location="zoek.html";
 }
 
 function vacature(){
