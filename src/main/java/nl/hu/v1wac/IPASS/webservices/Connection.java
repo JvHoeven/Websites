@@ -214,7 +214,7 @@ public class Connection {
 	public String zoek(@PathParam("werkvlak") String werkvlak, @FormParam("voornaam") String vn, @FormParam("achternaam") String an, @FormParam("geboortedatum") String datum, @FormParam("woonplaats") String woon, @FormParam("postcode") String post, @FormParam("email") String email, @FormParam("linkedinLink") String link, @FormParam("minimumloon") double miniLoon, @FormParam("telefoonnummer") String tel){
 		String lin = null;
 		List<Interimmer> all = provider.getAllInterimmers();
-		
+		System.out.println("hoi");
 		JsonArrayBuilder interimmer = Json.createArrayBuilder();
 
 		for(Interimmer i : all){
