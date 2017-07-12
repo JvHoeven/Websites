@@ -27,7 +27,7 @@ import nl.hu.v1wac.IPASS.webservices.DataService;
 public class Connection {
 	DataService provider = ServiceProvider.getDataService();
 	
-	@POST
+	@GET
 	@Path("/zoek")
 	@RolesAllowed({"Partner"})
 	@Produces("application/json")
