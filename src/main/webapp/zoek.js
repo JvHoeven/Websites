@@ -24,7 +24,7 @@ function opslaan(){
 	arrayAsAString = array.join(",");
 	$.ajax({
 		url: "/restservices/data/zoek/"+ arrayAsAString,
-		method: "GET",
+		method: "POST",
 		data: $("#update").serialize(),
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
