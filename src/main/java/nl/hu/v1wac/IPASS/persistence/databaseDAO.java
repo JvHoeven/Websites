@@ -71,7 +71,7 @@ public class databaseDAO extends BaseDAO{
 	
 	public List<Interimmer> findAll() {
 		List<Interimmer> resultsList = new ArrayList<Interimmer>();
-		String query = "SELECT voornaam, achternaam, minimumloon, voorgaandeWerkvlakken, gewildeWerkvlakken, geboortedatum, woonplaats, postcode, email, telefoonnummer, linkedinLink FROM Interimmer";
+		String query = "SELECT interimmer_id, voornaam, achternaam, minimumloon, voorgaandeWerkvlakken, gewildeWerkvlakken, geboortedatum, woonplaats, postcode, email, telefoonnummer, linkedinLink FROM Interimmer";
 		try (Connection con = super.getConnection()){
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
