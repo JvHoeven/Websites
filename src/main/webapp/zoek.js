@@ -44,7 +44,7 @@ function opslaan(){
 			$("#vhead").append("<tr><th class='td1'>Naam</th><th class='td1'>Plaats</th><th class='td1'>Postcode</th><th class='td1'>Minimumloon</th></tr>")
 			$.each(data, function(i, dat) {
 				codes = '"' + dat.id + '"'
-				$("#vbody").append("<tr id='info' class='tr' onclick='getInterimmer("+ codes +")'><td id='bedrijf' class='td1'>" + dat.voornaam +" "+ dat.achternaam + "</td><td id='plaats' class='td2'>"+ dat.woonplaats +"</td><td id='postcode' class='td3'>"+ dat.postcode +"</td><td id='mini' class='td6'>€"+ dat.minimumloon +"</td></tr>");
+				$("#vbody").append("<tr id='info' class='tr' onclick='getInterimmer("+ codes +")'><td id='bedrijf' class='td1'>" + dat.voornaam +" "+ dat.achternaam + "</td><td id='plaats' class='td2'>"+ dat.woonplaats +"</td><td id='postcode' class='td3'>"+ dat.postcode +"</td><td id='mini' class='td6'>"+ dat.minimumloon +"</td></tr>");
 			});
 				},
 		
