@@ -62,6 +62,11 @@ function wegLine(){
 	}
 }
 
+function getInterimmer(code){
+	window.sessionStorage.setItem("intID", code)
+	window.location="interimmerInfo.html";
+}
+
 function loggedin() {
 	$.ajax({
 		url: "/restservices/data/loggedin",
