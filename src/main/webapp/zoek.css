@@ -164,6 +164,44 @@ ul{
 	padding: 8px;
 }
 
+#table-scroll {
+  max-height: 375px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.td1{
+	width: 33%;
+}
+
+.td2{
+	width: 30%;
+}
+
+.td3{
+	width: 37%;
+}
+
+.tr{
+	width: 100%
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #be1e2d;
+    color: white;
+}
+
 .com{
 	text-align: center;
 	height: 100%;
