@@ -202,6 +202,22 @@ th {
     color: white;
 }
 
+#vacatures{
+	margin-top: 2%;
+	heigth: auto;
+	margin-bottom: 2%;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    text-align: left;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+    background-color: white;
+    width: 40%;
+}
+
 .com{
 	text-align: center;
 	height: 100%;
