@@ -17,7 +17,7 @@ function loggedin() {
 
 function getVacature(){
 		$.ajax({
-			url: "/restservices/data/interimmer/" + window.sessionStorage.getItem("indID"),
+			url: "/restservices/data/interimmer/" + window.sessionStorage.getItem("intID"),
 			method: "POST",
 			beforeSend: function (xhr) {
 				var token = window.sessionStorage.getItem("sessionToken");
@@ -49,10 +49,8 @@ function getVacature(){
 						$("#vacaturen").append("<tr><td></td><td>" + arrays1[i] + "</td><td>" + arrays1[i + 1] + "</td><td>" + arrays1[i + 2] + "</td></tr>");
 						i = i + 3
 					};
-
-					$("#vacaturen").append('<tr><td>Uitleg:</td><td colspan="3"><form><textarea placeholder="Uitleg" id="uitleg" name="uitleg" onkeyup="auto_grow(this)"></textarea></form></td></tr>');
-						
-					$("#vacaturen").append('<tr><td></td><td colspan="3"><input type="button" value="Uitleg Plaatsen" id="uitlegPlaatsen" onclick="uitlegplaatsen()"/></td></tr>');
+					
+					$("#vacaturen").append('<tr><td></td><td colspan="3"><input type="button" value="Vacature Aanbieden" id="uitlegPlaatsen" onclick="vacatureAan()"/></td></tr>');
 					
 					
 					
@@ -80,10 +78,8 @@ function getVacature(){
 					for (var i = 1; i < arrays1.length; i++) {
 						$("#vacaturenMob").append("<tr><td></td><td>" + arrays1[i] + "</td></tr>");
 					};
-					
-					$("#vacaturenMob").append('<tr><td>Uitleg:</td><td><form><textarea placeholder="Uitleg" id="uitleg" name="uitleg" onkeyup="auto_grow(this)"></textarea></form></td></tr>');
-	
-					$("#vacaturenMob").append('<tr><td></td><td><input type="button" value="Uitleg Plaatsen" id="uitlegPlaatsen" onclick="uitlegplaatsen()"/></td></tr>');
+						
+					$("#vacaturenMob").append('<tr><td></td><td><input type="button" value="Vacature Aanbieden" id="uitlegPlaatsen" onclick="vacatureAan()"/></td></tr>');
 			},
 			
 			error:function (data) {
@@ -96,44 +92,12 @@ function red(){
 	window.location="zoek.html";
 }
 
-function werkvlakken(){
-	window.location="werkvlakken.html";
-}
-
-function uitlegplaatsen(){
-	if($("#uitleg").val() == ""){
-		$("#modal").html('<div>Er is geen uitleg ingevuld</div><input type="button" id="Oke" onclick="nee()" value="oke">')
-		modal.style.display = "block";
-	}else{
-		$("#modal").html('<div>Weet u zeker dat u deze uiteg wil plaatsen?</div><div> ' + $("#uitleg").val() + '</div><input type="button" id="Oke" onclick="plaats()" value="Ja"><input type="button" id="nee" onclick="nee()" value="nee">')
-		modal.style.display = "block";
-	}
+function vacature(){
+	window.location="vacToe.html";
 }
 
 function nee(){
 	modal.style.display = "none";
-}
-
-function plaats(){
-	var uri = "/restservices/data/reactie/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID") + "/" + $("#uitleg").val();
-	$.ajax(uri, {
-		type: "put",
-		beforeSend: function (xhr) {
-			var token = window.sessionStorage.getItem("sessionToken");
-			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
-		},
-		success: function(response) {
-			$("#modal").html('<div>De uitleg is opgeslagen</div><input type="button" id="Oke" onclick="away()" value="oke">')
-		},
-		error: function(response) {
-			$("#modal").html('<div>er ging iet fout bij het opslaan</div><input type="button" id="Oke" onclick="nee()" value="oke">')
-		},
-	});
-}
-
-function auto_grow(element) {
-    element.style.height = "5px";
-    element.style.height = (element.scrollHeight)+"px";
 }
 
 function away(){

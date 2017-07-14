@@ -81,8 +81,8 @@ function red(){
 	window.location="zoek.html";
 }
 
-function werkvlakken(){
-	window.location="werkvlakken.html";
+function vacature(){
+	window.location="vacToe.html";
 }
 
 function uitlegplaatsen(){
