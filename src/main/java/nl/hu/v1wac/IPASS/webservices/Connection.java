@@ -43,6 +43,7 @@ public class Connection {
 						if(i.getPostcode().toLowerCase().contains(post.toLowerCase()) || post.equals("")){
 							if(i.getEmail().toLowerCase().contains(email.toLowerCase()) || email.equals("")){
 								if(i.getMinimumloon() <= miniLoon || miniLoon == 0.0){
+									if(String.valueOf(i.getTelefoonnummer()).contains(tel))
 									if(werkvlak.equals("0")){
 										zoekende.add(i);
 									}else{

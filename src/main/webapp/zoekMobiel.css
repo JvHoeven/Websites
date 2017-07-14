@@ -198,6 +198,61 @@ ul{
 	padding: 8px;
 }
 
+
+#table-scroll {
+  max-height: 375px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.td1{
+	width: 33%;
+}
+
+.td2{
+	width: 30%;
+}
+
+.td3{
+	width: 37%;
+}
+
+.tr{
+	width: 100%
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #be1e2d;
+    color: white;
+}
+
+#vacatures{
+	margin-top: 2%;
+	heigth: auto;
+	margin-bottom: 2%;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    text-align: left;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+    background-color: white;
+    width: 40%;
+}
+
 #PCMASTER{
 	display: none;
 }
