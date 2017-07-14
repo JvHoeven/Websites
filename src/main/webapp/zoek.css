@@ -171,15 +171,27 @@ ul{
 }
 
 .td1{
-	width: 33%;
+	min-width: 16.6%;
 }
 
 .td2{
-	width: 30%;
+	min-width: 16.6%;
 }
 
 .td3{
-	width: 37%;
+	min-width: 16.6%;
+}
+
+.td4{
+	min-width:16.6%;
+}
+
+.td5{
+	min-width:16.6%;
+}
+
+.td6{
+	min-width:16.6%;
 }
 
 .tr{
