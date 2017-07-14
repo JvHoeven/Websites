@@ -171,27 +171,19 @@ ul{
 }
 
 .td1{
-	min-width: 16.6%;
+	min-width: 25%;
 }
 
 .td2{
-	min-width: 16.6%;
+	min-width: 25%;
 }
 
 .td3{
-	min-width: 16.6%;
+	min-width: 25%;
 }
 
 .td4{
-	min-width:16.6%;
-}
-
-.td5{
-	min-width:16.6%;
-}
-
-.td6{
-	min-width:16.6%;
+	min-width:25%;
 }
 
 .tr{
@@ -227,7 +219,7 @@ table {
     font-size: 20px;
     font-family: Ubuntu, sans-serif;
     background-color: white;
-    width: 40%;
+    width: 80%;
 }
 
 .com{
