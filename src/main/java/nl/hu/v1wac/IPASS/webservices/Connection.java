@@ -155,10 +155,10 @@ public class Connection {
 	}
 	
 	@GET
-	@Path("/vacature/{id}/{role}/{vacID}")
+	@Path("/vacature/{id}/{role}/{vacID}/{yn}")
 	@RolesAllowed({"Interimmer", "Partner"})
 	@Produces("application/json")
-	public String getVacature(@PathParam("id") int id, @PathParam("role") String role, @PathParam("vacID") int vacID){
+	public String getVacature(@PathParam("id") int id, @PathParam("role") String role, @PathParam("vacID") int vacID, @PathParam("yn") String yn){
 		JsonObjectBuilder vac = Json.createObjectBuilder();
 		Vacature v = provider.getVacature(id, role, vacID);
 		String com = provider.getCommunicatie(id, role, vacID);
@@ -187,8 +187,10 @@ public class Connection {
 			vac.add("uitleg", uitleg);
 			vac.add("parVoornaam", par.getVoornaam());
 			vac.add("parAchternaam", par.getAchternaam());
-			vac.add("intVoornaam", inte.getNaam());
-			vac.add("intAchternaam", inte.getAchternaam());
+			if(yn.equals("IS NOT NULL")){
+				vac.add("intVoornaam", inte.getNaam());
+				vac.add("intAchternaam", inte.getAchternaam());
+			}
 		return vac.build().toString();
 	}
 	
@@ -271,6 +273,14 @@ public class Connection {
 		return Response.ok().build();
 	}
 
-	
+	@POST
+	@Path("/saveVacUitleg/{id}/{werkvlak}/{intID}/{uitleg}")
+	@RolesAllowed({"Partner"})
+	@Produces("application/json")
+	public Response saveVacatureUitleg(@PathParam("id") int id, @PathParam("intID") int intID, @PathParam("uitleg") String uitleg,  @FormParam("bedrijf") String b, @PathParam("werkvlak") String werkvlakken, @FormParam("plaats") String p, @FormParam("postcode") String code, @FormParam("functie") String f){
+		Vacature v = new Vacature(code, p, b, werkvlakken, 0, f, id, intID);
+		provider.saveVacatureUitleg(id, v, intID, uitleg);
+		return Response.ok().build();
+	}
 	
 }

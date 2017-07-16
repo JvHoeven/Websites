@@ -26,7 +26,7 @@ function getVacatures(){
 		success: function (data) {
 				if(data.length == 0){
 					$("#clear").empty();
-					$("#clear").append("<div>Er zijn nog geen vacatures die je hebt aangeboden</div>")
+					$("#clear").append("<div>Er zijn nog geen vacatures openstaan</div>")
 				}
 				$("#vhead").empty();
 				$("#vbody").empty();
@@ -41,7 +41,7 @@ function getVacatures(){
 
 function getVacature(va_id){
 	window.sessionStorage.setItem("vacatureID", va_id)
-	window.location="vacaturePartner.html";
+	window.location="vacAan.html";
 }
 
 function away(){

@@ -60,4 +60,8 @@ public class DataService {
 	public Vacature saveVacature(int id, Vacature v){
 		return DataBaseDAO.saveVacature(id, v);
 	}
+	
+	public Vacature saveVacatureUitleg(int id, Vacature v, int intID, String uitleg){
+		return DataBaseDAO.saveVacatureUitleg(id, v, intID, uitleg);
+	}
 }

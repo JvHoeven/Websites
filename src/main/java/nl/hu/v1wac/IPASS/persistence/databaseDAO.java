@@ -198,6 +198,34 @@ public class databaseDAO extends BaseDAO{
 		return null;
 	}
 	
+	public Vacature saveVacatureUitleg(int id, Vacature v, int intID, String uitleg){
+		int vacatureId = 0;
+		String bedrijf = v.getBedrijf();
+		String plaats = v.getPlaats();
+		String postcode = v.getPostcode();
+		String werkvlakken = v.getWerkvlakken();
+		String functie = v.getFunctie();
+		String query = "INSERT INTO vacature (interimmer_id, partner_id, bedrijf, plaats, postcode, werkvlakken, functie) VALUES ("+intID+", "+id+", '"+bedrijf+"', '"+plaats+"', '"+postcode+"', '"+werkvlakken+"', '"+functie+"')";
+		try (Connection con = super.getConnection()){
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(query);
+		} catch (SQLException sqle) { sqle.printStackTrace(); }
+		String query2 = "SELECT vacature_id FROM vacature WHERE interimmer_id=" + intID + " AND partner_id= " + id + " AND bedrijf='" + bedrijf + "' AND functie='"+ functie +"' AND plaats='"+plaats+"' AND postcode= '"+postcode+"' AND werkvlakken= '"+werkvlakken+"'";
+		try (Connection con = super.getConnection()){
+			Statement stmt = con.createStatement();
+			ResultSet dbResultSet = stmt.executeQuery(query2);
+			while (dbResultSet.next()) {
+				vacatureId= dbResultSet.getInt("vacature_id");
+			}
+		} catch (SQLException sqle) { sqle.printStackTrace(); }
+		String query3 = "INSERT INTO communicatie (interimmer_id, partner_id, vacature_id, uitleg) VALUES (" + intID + ", " + id + ", " + vacatureId + ", " + uitleg + ")";
+		try (Connection con = super.getConnection()){
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(query3);
+		} catch (SQLException sqle) { sqle.printStackTrace(); }
+		return null;
+	}
+	
 	public Vacature getVacture(int id, String role, int vacID) {
 		Vacature result = new Vacature(role, role, role, null, id, role, 0, 0);
 		String query = "SELECT vacature_id, partner_id, bedrijf, plaats, postcode, werkvlakken, functie, interimmer_id FROM vacature WHERE " + role + "_id=" + id + " AND vacature_id=" + vacID;
