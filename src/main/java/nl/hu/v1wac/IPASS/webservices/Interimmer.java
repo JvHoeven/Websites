@@ -3,18 +3,18 @@ package nl.hu.v1wac.IPASS.webservices;
 
 public class Interimmer {
 
-	String voornaam;
-	String achternaam;
-	double minimumloon;
-	String voorgaandeWerkvlakken;
-	String gewildeWerkvlakken;
-	String geboortedatum;
-	String woonplaats;
-	String postcode;
-	String email;
-	int telefoonnummer;
-	String linkedinLink;
-	int interimmer_id;
+	private String voornaam;
+	private String achternaam;
+	private double minimumloon;
+	private String voorgaandeWerkvlakken;
+	private String gewildeWerkvlakken;
+	private String geboortedatum;
+	private String woonplaats;
+	private String postcode;
+	private String email;
+	private int telefoonnummer;
+	private String linkedinLink;
+	private int interimmer_id;
 	
 	public Interimmer(int ID, String vn, String an, double miniLoon, String voorgaandeWerkvlakken2, String gewildeWerkvlakken2, String geb, String woon, String post, String mail, int tel, String link){
 		interimmer_id = ID;

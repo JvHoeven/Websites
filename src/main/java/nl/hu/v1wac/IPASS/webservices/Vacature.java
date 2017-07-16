@@ -2,14 +2,14 @@ package nl.hu.v1wac.IPASS.webservices;
 
 
 public class Vacature {
-	String postcode;
-	String plaats;
-	String bedrijf;
-	String werkvlakken;
-	int vacature_id;
-	String functie;
-	int partner_id;
-	int interimmer_id;
+	private String postcode;
+	private String plaats;
+	private String bedrijf;
+	private String werkvlakken;
+	private int vacature_id;
+	private String functie;
+	private int partner_id;
+	private int interimmer_id;
 	
 	public Vacature(String post, String plaat, String bed, String werkvlak, int id, String fun, int pi, int ii){
 		postcode = post;
