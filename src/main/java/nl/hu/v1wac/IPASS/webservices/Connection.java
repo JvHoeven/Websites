@@ -134,14 +134,16 @@ public class Connection {
 		for(Vacature v : all){
 			Interimmer inte = provider.getInterimmer(v.getInterimmerId());
 			JsonObjectBuilder alleVacatures = Json.createObjectBuilder();
+			if(yn.equals("IS NOT NULL")){
+				alleVacatures.add("intVoornaam", inte.getNaam());
+				alleVacatures.add("intAchternaam", inte.getAchternaam());
+			}
 			alleVacatures.add("bedrijf", v.getBedrijf());
 			alleVacatures.add("plaats", v.getPlaats());
 			alleVacatures.add("postcode", v.getPostcode());
 			alleVacatures.add("id", v.getId());
 			alleVacatures.add("werkvlakken", v.getWerkvlakken().toString());
 			alleVacatures.add("functie", v.getFunctie());
-			alleVacatures.add("intVoornaam", inte.getNaam());
-			alleVacatures.add("intAchternaam", inte.getAchternaam());
 			
 			vacatures.add(alleVacatures);
 			alleVacatures = null;

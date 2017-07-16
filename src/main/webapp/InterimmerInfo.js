@@ -96,6 +96,10 @@ function vacature(){
 	window.location="vacToe.html";
 }
 
+function vacatureAan(){
+	window.location="vacKop.html";
+}
+
 function nee(){
 	modal.style.display = "none";
 }
