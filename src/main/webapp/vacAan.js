@@ -1,6 +1,5 @@
 var werkvlakken
 
-
 function loggedin() {
 	$.ajax({
 		url: "/restservices/data/loggedin",
@@ -10,7 +9,7 @@ function loggedin() {
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 		},
 		success: function (data) {
-			getVacature();
+			getVacatures();
 		},
 		error: function (data) {
 			window.location="https://ipasswebservice.herokuapp.com/";
@@ -18,7 +17,7 @@ function loggedin() {
 	});
 }
 
-function getVacature(){
+function getVacatures(){
 		$.ajax({
 			url: "/restservices/data/vacature/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID") + "/IS NULL",
 			method: "GET",
@@ -27,10 +26,10 @@ function getVacature(){
 				xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 			},
 			success: function (data) {
-					werkvlakken = data.werkvlakken
 					$("#vacaturen").empty();
 					var array = data.werkvlakken.replace("{","")
 					var arrayComp = array.replace("}","")
+					werkvlakken = arrayComp
 					var arrays = arrayComp.split(",");
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Bedrijf:</td><td>" + data.bedrijf + "</td><td>Functie:</td><td> "+ data.functie +"</td></tr>");		
 					$("#vacaturen").append("<tr id='info' class='tr'><td>Postcode:</td><td> "+ data.postcode +"</td><td>Plaats: </td><td>"+ data.plaats +"</td></tr>");
@@ -91,9 +90,8 @@ function nee(){
 
 function plaats(){
 	$.ajax({
-		url: "/restservices/data/saveVacUitleg/" + window.sessionStorage.getItem("id") +"/"+ werkvlakken + "/" + window.sessionStorage.getItem("intID") + "/" + $("#uitleg").val(),
+		url: "/restservices/data/saveVacUitleg/" + window.sessionStorage.getItem("id") +"/"+ werkvlakken + "/" + window.sessionStorage.getItem("intID") + "/" + $("#uitleg").val() + "/" + window.sessionStorage.getItem("vacatureID"),
 		method: "POST",
-		data: $("#update").serialize(),
 		beforeSend: function (xhr) {
 			var token = window.sessionStorage.getItem("sessionToken");
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);

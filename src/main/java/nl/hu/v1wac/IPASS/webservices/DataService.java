@@ -61,7 +61,7 @@ public class DataService {
 		return DataBaseDAO.saveVacature(id, v);
 	}
 	
-	public Vacature saveVacatureUitleg(int id, Vacature v, int intID, String uitleg){
-		return DataBaseDAO.saveVacatureUitleg(id, v, intID, uitleg);
+	public Vacature saveVacatureUitleg(int id, int vacID, int intID, String uitleg){
+		return DataBaseDAO.saveVacatureUitleg(id, vacID, intID, uitleg);
 	}
 }

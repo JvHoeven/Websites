@@ -198,7 +198,8 @@ public class databaseDAO extends BaseDAO{
 		return null;
 	}
 	
-	public Vacature saveVacatureUitleg(int id, Vacature v, int intID, String uitleg){
+	public Vacature saveVacatureUitleg(int id, int vacID, int intID, String uit){
+		Vacature v = getVacture(id, "Partner", vacID);
 		int vacatureId = 0;
 		String bedrijf = v.getBedrijf();
 		String plaats = v.getPlaats();
@@ -218,7 +219,7 @@ public class databaseDAO extends BaseDAO{
 				vacatureId= dbResultSet.getInt("vacature_id");
 			}
 		} catch (SQLException sqle) { sqle.printStackTrace(); }
-		String query3 = "INSERT INTO communicatie (interimmer_id, partner_id, vacature_id, uitleg) VALUES (" + intID + ", " + id + ", " + vacatureId + ", " + uitleg + ")";
+		String query3 = "INSERT INTO communicatie (interimmer_id, partner_id, vacature_id, uitleg) VALUES (" + intID + ", " + id + ", " + vacatureId + ", '" + uit + "')";
 		try (Connection con = super.getConnection()){
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate(query3);

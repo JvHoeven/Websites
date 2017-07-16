@@ -17,7 +17,7 @@ function loggedin() {
 
 function getVacature(){
 		$.ajax({
-			url: "/restservices/data/vacature/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID") + "/IS NOT NULL",
+			url: "/restservices/data/vacature/" + window.sessionStorage.getItem("id") + "/" + window.sessionStorage.getItem("role") + "/" + window.sessionStorage.getItem("vacatureID"),
 			method: "GET",
 			beforeSend: function (xhr) {
 				var token = window.sessionStorage.getItem("sessionToken");

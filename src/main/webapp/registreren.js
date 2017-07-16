@@ -20,7 +20,7 @@ function register(){
 						data : $("#register").serialize(),
 
 						success: function (data) {
-							var link = "'http://localhost:8080/IPASS'"
+							var link = "'https://ipasswebservice.herokuapp.com/'"
 							$("#modal").html('<div>Het account is aangemaakt</div><input type="button" id="Oke" onclick="window.location=' + link + '" value="Oke">')
 							modal.style.display = "block";
 						},

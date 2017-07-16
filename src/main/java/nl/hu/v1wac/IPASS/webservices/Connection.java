@@ -274,12 +274,11 @@ public class Connection {
 	}
 
 	@POST
-	@Path("/saveVacUitleg/{id}/{werkvlak}/{intID}/{uitleg}")
+	@Path("/saveVacUitleg/{id}/{werkvlak}/{intID}/{uitleg}/{vacID}")
 	@RolesAllowed({"Partner"})
 	@Produces("application/json")
-	public Response saveVacatureUitleg(@PathParam("id") int id, @PathParam("intID") int intID, @PathParam("uitleg") String uitleg,  @FormParam("bedrijf") String b, @PathParam("werkvlak") String werkvlakken, @FormParam("plaats") String p, @FormParam("postcode") String code, @FormParam("functie") String f){
-		Vacature v = new Vacature(code, p, b, werkvlakken, 0, f, id, intID);
-		provider.saveVacatureUitleg(id, v, intID, uitleg);
+	public Response saveVacatureUitleg(@PathParam("id") int id, @PathParam("intID") int intID, @PathParam("uitleg") String uitleg, @PathParam("werkvlak") String werkvlakken, @PathParam("vacID") int vacID){
+		provider.saveVacatureUitleg(id, vacID, intID, uitleg);
 		return Response.ok().build();
 	}
 	
